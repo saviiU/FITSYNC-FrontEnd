@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  background: #f3f5f8;
+  font-family: Arial, sans-serif;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 480px;
+  padding: 35px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.register-card h1 {
+  color: #2563eb;
+  text-align: center;
+  font-size: 28px;
+}
+
+.register-card h2 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.register-card > p {
+  text-align: center;
+  color: #666;
+}
+
+.register-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.register-card label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.register-card input:not([type="checkbox"]),
+.register-card select,
+.register-card textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+}
+
+.register-card input:focus,
+.register-card select:focus,
+.register-card textarea:focus {
+  border-color: #2563eb;
+}
+
+.register-card textarea {
+  resize: vertical;
+}
+
+.terms-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.terms-row input {
+  width: 16px;
+  height: 16px;
+}
+
+.terms-row span {
+  font-size: 13px;
+  color: #555;
+}
+
+.register-card button {
+  padding: 13px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.register-card button:hover {
+  background: #1d4ed8;
+}
+
+.register-card .switch-text {
+  margin-top: 22px;
+  font-size: 14px;
+}
+
+.switch-text a {
+  color: #2563eb;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  .register-card {
+    padding: 25px 20px;
+  }
+}
