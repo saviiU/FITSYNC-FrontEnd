@@ -1,124 +1,402 @@
-* {
+/* Create Account page — standalone styles, scoped to .register-page */
+
+.register-page {
+  --green: #006a5e;
+  --bg: #f0faf8;
+  --ink: #14231f;
+  --muted: #475569;
+  --soft: #64748b;
+  --placeholder: #94a3b8;
+  --track: #e1ebe8;
+  --field: #edf3f1;
+  --chip: #e8f1ef;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -4px rgba(0, 0, 0, 0.15);
+}
+
+.register-page,
+.register-page * {
   box-sizing: border-box;
 }
 
 .register-page {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 15px;
-  background: #f3f5f8;
-  font-family: Arial, sans-serif;
-}
-
-.register-card {
-  width: 100%;
-  max-width: 480px;
-  padding: 35px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-}
-
-.register-card h1 {
-  color: #2563eb;
-  text-align: center;
-  font-size: 28px;
-}
-
-.register-card h2 {
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.register-card > p {
-  text-align: center;
-  color: #666;
-}
-
-.register-card form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 25px;
-}
-
-.register-card label {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.register-card input:not([type="checkbox"]),
-.register-card select,
-.register-card textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  outline: none;
-  font-family: inherit;
+  max-width: 380px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Plus Jakarta Sans", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-.register-card input:focus,
-.register-card select:focus,
-.register-card textarea:focus {
-  border-color: #2563eb;
-}
-
-.register-card textarea {
-  resize: vertical;
-}
-
-.terms-row {
+.register-page .auth-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 8px;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow-sm);
 }
 
-.terms-row input {
-  width: 16px;
-  height: 16px;
+.register-page .auth-header h2 {
+  margin: 0; font-size: 17px; font-weight: 600;
 }
 
-.terms-row span {
-  font-size: 13px;
-  color: #555;
-}
-
-.register-card button {
-  padding: 13px;
-  margin-top: 8px;
-  border: none;
-  border-radius: 8px;
-  background: #2563eb;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
+.register-page .icon-btn {
+  display: flex;
+  padding: 4px;
+  border: 0;
+  background: none;
+  color: inherit;
   cursor: pointer;
 }
 
-.register-card button:hover {
-  background: #1d4ed8;
+.register-page .profile-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  cursor: pointer;
 }
 
-.register-card .switch-text {
-  margin-top: 22px;
+.register-page .auth-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 32px 24px 24px;
+}
+
+.register-page .hero {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+
+.register-page .hero-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  box-shadow: 0 0 0 10px rgba(0, 106, 94, 0.12), 0 0 30px rgba(0, 106, 94, 0.35);
+}
+
+.register-page .hero-eyebrow {
+  margin: 24px 0 0;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.register-page .hero h1 {
+  margin: 24px 0 0;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.register-page .hero-eyebrow + h1 {
+  margin-top: 8px; font-size: 30px;
+}
+
+.register-page .hero-subtitle {
+  max-width: 240px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.register-page .hero-eyebrow + h1 + .hero-subtitle {
+  max-width: 260px;
+}
+
+.register-page .goal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.register-page .goal-title {
+  font-size: 14px; font-weight: 600;
+}
+
+.register-page .goal-hint {
+  color: var(--green); font-size: 11px; font-weight: 600;
+}
+
+.register-page .chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+}
+
+.register-page .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--track);
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.register-page .chip.active {
+  background: var(--green); color: #fff; box-shadow: var(--shadow-sm);
+}
+
+.register-page .card {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.register-page .info-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--chip);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.register-page .info-chip svg {
+  flex-shrink: 0; color: var(--green);
+}
+
+.register-page .info-box {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--chip);
+}
+
+.register-page .info-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+}
+
+.register-page .info-box h3 {
+  margin: 0; color: var(--green); font-size: 14px; font-weight: 700;
+}
+
+.register-page .info-box p {
+  margin: 4px 0 0; color: #334155; font-size: 12px; line-height: 1.35;
+}
+
+.register-page .field {
+  margin-top: 16px;
+}
+
+.register-page .field-row {
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.register-page .field label {
+  font-size: 15px; font-weight: 600;
+}
+
+.register-page .field-optional {
+  color: var(--green); font-size: 13px; font-weight: 600;
+}
+
+.register-page .input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--field);
+}
+
+.register-page .input-wrap:focus-within {
+  outline: 2px solid rgba(0, 106, 94, 0.45);
+}
+
+.register-page .input-wrap > svg {
+  flex-shrink: 0; color: var(--muted);
+}
+
+.register-page .input-wrap input,
+.register-page .input-wrap textarea {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
   font-size: 14px;
 }
 
-.switch-text a {
-  color: #2563eb;
-  font-weight: bold;
-  text-decoration: none;
+.register-page .input-wrap input::placeholder,
+.register-page .input-wrap textarea::placeholder {
+  color: var(--placeholder);
 }
 
-@media (max-width: 500px) {
-  .register-card {
-    padding: 25px 20px;
-  }
+.register-page .input-wrap textarea {
+  resize: none;
 }
+
+.register-page .input-wrap.top {
+  align-items: flex-start;
+}
+
+.register-page .input-wrap.top > svg {
+  margin-top: 2px;
+}
+
+.register-page .eye-btn {
+  display: flex; padding: 0; border: 0; background: none; color: var(--muted); cursor: pointer;
+}
+
+.register-page .helper {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--soft);
+  font-size: 11px;
+}
+
+.register-page .terms {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  color: #334155;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.register-page .terms input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.register-page .checkbox-box {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: #cbd5d1;
+  color: #fff;
+}
+
+.register-page .checkbox-box.checked {
+  background: var(--green);
+}
+
+.register-page .terms a {
+  color: var(--green); font-weight: 600; text-decoration: none;
+}
+
+.register-page .trial-badge {
+  margin-top: 12px;
+}
+
+.register-page .btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--green);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+}
+
+.register-page .btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.register-page .btn-primary:disabled {
+  opacity: 0.5; cursor: not-allowed;
+}
+
+.register-page .divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--soft);
+  font-size: 12px;
+}
+
+.register-page .divider::before,
+.register-page .divider::after {
+  content: ""; flex: 1; height: 1px; background: rgba(203, 213, 225, 0.7);
+}
+
+.register-page .social-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+
+.register-page .social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+.register-page .footer-text {
+  margin: 24px 0 0; color: var(--muted); font-size: 14px; text-align: center;
+}
+
+.register-page .footer-text a {
+  color: var(--green); font-weight: 600; text-decoration: none;
+} 
