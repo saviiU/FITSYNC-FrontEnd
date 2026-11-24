@@ -5,6 +5,7 @@ export default function TrainerProfile() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [t, setT] = useState(null);
+  const [reviews, setReviews] = useState([]);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -15,6 +16,12 @@ export default function TrainerProfile() {
         setT(await res.json());
       } catch {
         setError('Could not load this trainer');
+      }
+      try {
+        const res = await fetch(`/api/trainers/${id}/reviews`);
+        if (res.ok) setReviews(await res.json());
+      } catch {
+        // reviews are optional, so ignore errors
       }
     })();
   }, [id]);
@@ -47,6 +54,21 @@ export default function TrainerProfile() {
 
           {t.bio && <div className="about"><b>About</b>{t.bio}</div>}
           {t.certification && <div className="about"><b>Certification</b>{t.certification}</div>}
+
+          {reviews.length > 0 && (
+            <div className="about">
+              <b>Reviews</b>
+              {reviews.map((r) => (
+                <div className="review" key={r.id}>
+                  <div className="rating">
+                    {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}{' '}
+                    <span className="meta">{r.client?.name}</span>
+                  </div>
+                  {r.comment && <div>{r.comment}</div>}
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="actions" style={{ marginTop: 14 }}>
             <button className="btn solid">Book Slot →</button>
